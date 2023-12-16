@@ -1,60 +1,57 @@
-
-body {
-    margin: 0 auto;
+*::before,
+*::after {
+    margin: 0;
     padding: 0;
-    width: 100vw;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    background-color: white;
-}
-
-
-
-#recommended {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    letter-spacing: 0.5px;
-    overflow: hidden;
     box-sizing: border-box;
 }
 
+body {
+    width: 100vw;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    background-color: white;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+}
+
+/*Section*/
+#recommended {
+    display: block;
+    letter-spacing: 0.5px;
+    overflow: hidden;
+}
+
+
+/*Header*/
 h1 {
+    font-size: 20px;
     color: #1a2b48;
-    font-family: dm sans, Sans-serif;
     letter-spacing: 2px;
     font-weight: 700;
-    line-height: 46px;
-}
+    padding: 40px;
 
-h3{
-    margin: 5px 0;
-
-}
-
-small {
-    font-weight: 100;
 }
 
 .container {
-    width: 1200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 
 .nav-list ul {
     display: flex;
     flex-direction: row;
-    margin-bottom: 50px
+    margin-bottom: 50px;
 }
 
-.nav-list li {
+.nav-list ul li {
     padding: 10px 24px;
     font-weight: 500;
     font-size: 16px;
@@ -76,33 +73,57 @@ small {
 }
 
 .nav-list ul:first-child li:first-child a {
-    background: royalblue;
     color: white
 }
 
 .nav-list a {
     text-decoration: none;
-    color: black
+    color: black;
+    outline: none;
 }
 
-.content-details {
-    width: 100%;
-    padding: 5px 20px;
+.recommended-items {
+    padding: 0px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.recommended-item {
+    background: #fff;
+  border: none;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(0,0,0,.08),0 4px 12px rgba(0,0,0,.05);
+  border-radius: 15px;
+  overflow: hidden;
+  padding-bottom: 0;
+}
+
+.content-img {
     position: relative;
+    overflow: initial;
     box-sizing: border-box;
 }
 
-.profile-img {
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgb(185, 182, 182);
-    border-radius: 50%;
+.inner {
     overflow: hidden;
     box-sizing: border-box;
-    position: absolute;
-    top: -22px;
-    right: 20px;
 }
+
+.content-img img {
+    overflow: hidden;
+    display: block;
+    margin: 0;
+    transition: transform 1.5s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.content-img:hover img {
+    transform: scale3d(1.1, 1.1, 1.1);
+}
+
 
 .heart {
     position: absolute;
@@ -113,6 +134,36 @@ small {
     cursor: pointer;
 }
 
+
+.profile-img img {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgb(185, 182, 182);
+    border-radius: 50%;
+    overflow: initial;
+    box-sizing: border-box;
+    position: absolute;
+    bottom: -16px;
+    right: 20px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+
+
+
+.content-details {
+    padding: 5px 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.content-details .feedback-star i {
+    color: #FA5636;
+    font-size: 10px;
+}
+
+
 hr {
     width: 100%;
     color: #f1f1f1;
@@ -120,13 +171,13 @@ hr {
     margin-top: 25px;
 }
 
+
 .feedback-details {
     margin-top: 20px;
     width: 100%;
 }
 
 .feedback-details .detail-1 {
-
     display: flex;
     flex-direction: row;
 
@@ -159,56 +210,28 @@ hr {
     letter-spacing: 1px;
 }
 
-.price-detail{
+.price-detail {
     margin: 10px 5px;
 }
-.price-detail span{
+
+.price-detail span {
     font-size: 14px;
     font-weight: 500;
     margin: 0 3px;
 }
 
-.content-img {
-    overflow: hidden; 
-    box-sizing: border-box;
-     padding: 0;
-    margin: 0;
+
+/*hotel name*/
+h3 {
+    margin: 5px 0;
 }
 
-.content-img img{
-    transition: transform 1.5s cubic-bezier(0,0,.2,1);
+
+small {
+    font-weight: 100;
 }
 
-.content-img:hover img{
-    transform: scale(1.1);
-}
 
-.content-details .feedback-star i {
-    color: #FA5636;
-    font-size: 10px;
-}
-
-.recommended-items {
-    width: 100%;
-    display: flex;
-
-    flex-wrap: wrap;
-}
-
-.recommended-item {
-    width: 30%;
-    margin: 10px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    box-sizing: border-box;
-    overflow: hidden;
-    position: relative;
-}
-
-img {
-    width: 100%;
-    
-}
 
 @media screen and (max-width: 1200px) {
 
@@ -220,7 +243,7 @@ img {
 
         display: flex;
         justify-content: center;
-        align-content: center;
+        align-items: center;
     }
 }
 
